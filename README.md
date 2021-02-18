@@ -1,7 +1,22 @@
-# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)  WEB DEVELOPMENT IMMERSIVE
-
 # Conditional Rendering
 
+![conditional](https://s3.ap-southeast-1.amazonaws.com/arrowhitech.com/wp-content/uploads/2020/07/09073745/conditional_rendering_react-1024x576.jpg)
+
+
+## Overview
+In this lesson we'll be covering conditional rendering with React by building a small greeting application. Conditional rendering is important because it allows us to control the flow of user experience in an application.
+
+## Lesson Objectives
+- Understand several methods for conditional rendering with React components
+- Use conditional rendering with state to affect real time changes in our application's UI
+
+## Getting Started
+- `Fork` and `clone` this repository and `cd` into the new directory
+- Create a new React app with `npx create-react-app conditional-react`
+- `cd` into the new React app and run `npm start` to open your app in the browser
+
+## Instructions
+### Setup
 In React, you can create distinct components that encapsulate behavior you need. Then, you can render only some of them, depending on the state of your application.
 
 Conditional rendering in React works the same way conditions work in JavaScript. Use JavaScript operators like `if` or the conditional operator to create elements representing the current state, and let React update the UI to match them.
@@ -152,3 +167,9 @@ In rare cases you might want a component to hide itself even though it was rende
 
 Source:
 - https://github.com/reactjs/reactjs.org/tree/master/content/docs/conditional-rendering.md
+
+
+## Recap
+
+## Resources
+
