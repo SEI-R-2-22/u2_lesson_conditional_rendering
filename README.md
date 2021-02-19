@@ -87,6 +87,9 @@ This example renders a different greeting depending on the value of `isLoggedIn`
 - Which greeting is our component rendering?
 - Now let's try changing value of `isLoggedIn` being passed from `App.js` to `true`
 - Has anything changed with our rendered components?
+- Wait, where did `<GuestGreeting />` go?
+
+![](https://media1.tenor.com/images/cfa7b21f58649ce86b82ae3c7fdc0485/tenor.gif)
 
 ### Element Variables
 
@@ -169,6 +172,8 @@ export default class App extends Component {
 While declaring a variable and using an if statement is a fine way to conditionally render a component, sometimes you might want to use a shorter syntax. There are a few ways to inline conditions in JSX, explained below.
 
 ### Inline If with Logical && Operator
+
+![and](https://media.tenor.co/images/bf504f6a2b7ad83c2f78dfeee2d2ede0/raw)
 
 You may embed any expressions in JSX by wrapping them in curly braces. This includes the JavaScript logical `&&` operator. It can be handy for conditionally including an element.
 
@@ -286,6 +291,8 @@ It works because in JavaScript, `true && expression` always evaluates to `expres
 Therefore, if the condition is `true`, the element right after `&&` will appear in the output. If it is `false`, React will ignore and skip it.
 
 ### Inline If-Else with A Ternary Operator
+
+![ternary](https://i.pinimg.com/originals/85/d9/26/85d9268373fde414bdc43cb09b40de8b.gif)
 
 Another method for conditionally rendering elements inline is to use the JavaScript conditional operator `condition ? true : false`.
 
