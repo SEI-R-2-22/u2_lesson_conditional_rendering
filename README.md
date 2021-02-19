@@ -22,8 +22,9 @@ In React, you can create distinct components that encapsulate behavior you need.
 
 Conditional rendering in React works the same way conditions work in JavaScript. Use JavaScript operators like `if` or the conditional operator to create elements representing the current state, and let React update the UI to match them.
 
-Consider these two components:
+We'll start by adding two components into our `components` directory:
 
+#### UserGreeting.js
 ```js
 import React, {Component} from 'react';
 
@@ -33,7 +34,7 @@ export default class UserGreeting extends Component {
   }
 }
 ```
-
+#### GuestGreeting.js
 ```js
 import React, {Component} from 'react';
 
@@ -44,10 +45,13 @@ export default class GuestGreeting extends Component {
 }
 ```
 
-We’ll create a Greeting component that displays either of these components depending on whether a user is logged in:
+We’ll then create a Greeting component that displays either of these components depending on whether a user is logged in:
 
+#### Greeting.js
 ```js
 import React, {Component} from 'react';
+import UserGreeting from './UserGreeting';
+import GuestGreeting from './GuestGreeting';
 
 export default class Greeting extends Component {
   render() {
@@ -61,9 +65,24 @@ export default class Greeting extends Component {
 }
 ```
 
-[Try it on CodePen](https://codepen.io/gaearon/pen/ZpVxNq?editors=0011)
+Make sure to import our `Greeting` component into `App.js` so it is rendered and pass props to it for the `isLoggedIn` boolean value.
+
+#### App.js
+```js
+import React, {Component} from 'react';
+import Greeting from './components/Greeting';
+
+export default class App extends Component {
+  render() {
+    return <Greeting isLoggedIn={false} />
+  }
+}
+```
 
 This example renders a different greeting depending on the value of `isLoggedIn` prop.
+- Which greeting is our component rendering?
+- Now let's try changing value of `isLoggedIn` being passed from `App.js` to `true`
+- Has anything changed with our rendered components?
 
 ### Element Variables
 
