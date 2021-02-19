@@ -170,15 +170,18 @@ While declaring a variable and using an if statement is a fine way to conditiona
 
 ### Inline If with Logical && Operator
 
-You may embed any expressions in JSX by wrapping them in curly braces. This includes the JavaScript logical `&&` operator. It can be handy for conditionally including an element:
+You may embed any expressions in JSX by wrapping them in curly braces. This includes the JavaScript logical `&&` operator. It can be handy for conditionally including an element.
 
+Let's add one more component to our `components` folder
+
+#### Mailbox.js
 ```js
 import React, {Component} from 'react';
 
 export default class Mailbox extends Component {
-  
   render() {
     const unreadMessages = this.props.unreadMessages
+    
     return (
       <div>
         <h1>Hello!</h1>
@@ -193,7 +196,90 @@ export default class Mailbox extends Component {
 }
 ```
 
-[Try it on CodePen](https://codepen.io/gaearon/pen/ozJddz?editors=0010)
+Now we'll import it within our `App.js` component.
+
+```js
+import Mailbox from './components/Mailbox';
+```
+
+Before we render `Mailbox`, we'll need to add a key value pair into the `state` object of `App.js` to pass a props into `Mailbox`.
+
+```js
+this.state = {
+  isLoggedIn: false,
+  unreadMessages: ['Hello', 'World', 'This is Doordash with your order']
+}
+```
+
+Finally, inside the `render()` method of `App.js `, we'll add a variable `mailbox` and set it equal to another inline logical && operator that will only render `<Mailbox />` if the user is logged in.
+- Don't forget to call in `{mailbox}` inside your return statement after you've added it in the `render()`.
+
+```js
+// App.js
+
+render() {
+    const isLoggedIn = this.state.isLoggedIn;
+    let button;
+
+    if (isLoggedIn) {
+      button = <LogoutButton onClick={this.handleLogoutClick} />
+    } else {
+      button = <LoginButton onClick={this.handleLoginClick} />
+    }
+    
+    const mailbox = isLoggedIn && <Mailbox unreadMessages={this.state.unreadMessages} />
+...
+```
+
+<details><summary>Your <code>App.js</code> should look like this when you're finished</summary>
+  
+  ```js
+  import './styles/App.css'
+  import React, {Component} from 'react';
+  import Greeting from './components/Greeting';
+  import LoginButton from './components/LoginButton';
+  import LogoutButton from './components/LogoutButton';
+  import Mailbox from './components/Mailbox';
+
+  export default class App extends Component {
+    constructor() {
+      super()
+      this.state = {
+        isLoggedIn: false,
+        unreadMessages: ['hey, what is good', 'who is this?', 'your Doordash is here']
+      }
+    }
+
+    handleLoginClick = () => this.setState({isLoggedIn: true});
+
+    handleLogoutClick = () => this.setState({isLoggedIn: false});
+
+    render() {
+      const isLoggedIn = this.state.isLoggedIn;
+      let button;
+
+      if (isLoggedIn) {
+        button = <LogoutButton onClick={this.handleLogoutClick} />
+      } else {
+        button = <LoginButton onClick={this.handleLoginClick} />
+      }
+
+      const mailbox = isLoggedIn && <Mailbox unreadMessages={this.state.unreadMessages} />
+
+      return (
+        <div>
+          <Greeting isLoggedIn={isLoggedIn} />
+          {mailbox}
+          {button}
+        </div>
+      );
+    }
+  }
+  ```
+
+</details>
+
+So why does the logical && operator work with conditional rendering in React?
 
 It works because in JavaScript, `true && expression` always evaluates to `expression`, and `false && expression` always evaluates to `false`.
 
