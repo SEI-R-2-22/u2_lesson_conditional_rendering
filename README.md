@@ -20,7 +20,7 @@ In this lesson we'll be covering conditional rendering with React by building a 
 ### Setup
 In React, you can create distinct components that encapsulate behavior you need. Then, you can render only some of them, depending on the state of your application.
 
-Conditional rendering in React works the same way conditions work in JavaScript. Use JavaScript operators like `if` or the conditional operator to create elements representing the current state, and let React update the UI to match them.
+Conditional rendering in React works the same way conditions work in JavaScript. Use JavaScript operators like `if` or `?` to create elements representing the current state, and let React update the UI to match them.
 
 We'll start by adding two components into our `components` directory:
 
