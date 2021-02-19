@@ -321,6 +321,7 @@ With React we are able to control the flow of rendering and user experience with
 Make sure to use conditional rendering to create more controlled applications in React!
 
 ## Resources
-- [Conditional Rendering React](https://github.com/reactjs/reactjs.org/tree/master/content/docs/conditional-rendering.md)
+- [Conditional Rendering React Repository](https://github.com/reactjs/reactjs.org/tree/master/content/docs/conditional-rendering.md)
+- [React Conditional Rendering Docs](https://reactjs.org/docs/conditional-rendering.html)
 
 
