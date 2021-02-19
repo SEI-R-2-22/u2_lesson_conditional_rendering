@@ -101,7 +101,7 @@ import React, {Component} from 'react';
 export default class LoginButton extends Component {
   render() {
     return (
-      <button onClick={thisprops.onClick}>
+      <button onClick={this.props.onClick}>
         Login
       </button>
     );
@@ -123,30 +123,31 @@ export default class LogoutButton extends Component {
 }
 ```
 
-In the example below, we will now add `state` to our `App` component within it's `constructor()` to track our `isLoggedIn` variable.
+In the example below, we will now add `state` to our `App` component within it's `constructor()` to track our `isLoggedIn` variable. We'll also import our two button components from above and attach methods to set the state of `isLoggedIn` with `onClick` event listeners. 
 
-- It will now render either `<LoginButton />` or `<LogoutButton />` depending on its current state. 
-- It will also render a <Greeting /> from the previous example:
+- `App.js` will now render either `<LoginButton />` or `<LogoutButton />` depending on its current state. 
+- It will also render a `<Greeting />` from the previous example:
 
 ```js
 import React, {Component} from 'react';
+import Greeting from './components/Greeting';
+import LoginButton from './components/LoginButton';
+import LogoutButton from './components/LogoutButton';
 
 export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {isLoggedIn: false}
+  constructor() {
+    super()
+    this.state = {
+      isLoggedIn: false
+    }
   }
 
-  handleLoginClick = () => {
-    this.setState({isLoggedIn: true})
-  }
+  handleLoginClick = () => this.setState({isLoggedIn: true});
 
-  handleLogoutClick = () => {
-    this.setState({isLoggedIn: false})
-  }
-
+  handleLogoutClick = () => this.setState({isLoggedIn: false});
+  
   render() {
-    const isLoggedIn = this.state.isLoggedIn
+    const isLoggedIn = this.state.isLoggedIn;
     let button;
 
     if (isLoggedIn) {
@@ -164,8 +165,6 @@ export default class App extends Component {
   }
 }
 ```
-
-[Try it on CodePen](https://codepen.io/gaearon/pen/QKzAgB?editors=0010)
 
 While declaring a variable and using an if statement is a fine way to conditionally render a component, sometimes you might want to use a shorter syntax. There are a few ways to inline conditions in JSX, explained below.
 
@@ -200,7 +199,7 @@ It works because in JavaScript, `true && expression` always evaluates to `expres
 
 Therefore, if the condition is `true`, the element right after `&&` will appear in the output. If it is `false`, React will ignore and skip it.
 
-### Inline If-Else with Conditional Operator
+### Inline If-Else with A Ternary Operator
 
 Another method for conditionally rendering elements inline is to use the JavaScript conditional operator `condition ? true : false`.
 
