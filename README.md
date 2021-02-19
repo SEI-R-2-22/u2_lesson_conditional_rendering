@@ -14,6 +14,7 @@ In this lesson we'll be covering conditional rendering with React by building a 
 - `Fork` and `clone` this repository and `cd` into the new directory
 - Create a new React app with `npx create-react-app conditional-react`
 - `cd` into the new React app and run `npm start` to open your app in the browser
+- Within `src`, create a `components` folder to store components we'll be creating in this lesson
 
 ## Instructions
 ### Setup
@@ -24,24 +25,39 @@ Conditional rendering in React works the same way conditions work in JavaScript.
 Consider these two components:
 
 ```js
-function UserGreeting(props) {
-  return <h1>Welcome back!</h1>
-}
+import React, {Component} from 'react';
 
-function GuestGreeting(props) {
-  return <h1>Please sign up.</h1>
+export default class UserGreeting extends Component {
+  render() {
+    return <h1>Welcome back!</h1>
+  }
+}
+```
+
+```js
+import React, {Component} from 'react';
+
+export default class GuestGreeting extends Component {
+  render() {
+    return <h1>Please sign up.</h1>
+  }
 }
 ```
 
 We’ll create a Greeting component that displays either of these components depending on whether a user is logged in:
 
 ```js
-function Greeting(props) {
-  const isLoggedIn = props.isLoggedIn
-  if (isLoggedIn) {
-    return <UserGreeting />
+import React, {Component} from 'react';
+
+export default class Greeting extends Component {
+  render() {
+    const isLoggedIn = this.props.isLoggedIn
+    
+    if (isLoggedIn) {
+      return <UserGreeting />
+    }
+    return <GuestGreeting />
   }
-  return <GuestGreeting />
 }
 ```
 
@@ -56,20 +72,28 @@ You can use variables to store elements. This can help you conditionally render 
 Consider these two new components representing Logout and Login buttons:
 
 ```js
-function LoginButton(props) {
-  return (
-    <button onClick={props.onClick}>
-      Login
-    </button>
-  );
+import React, {Component} from 'react';
+
+export default class LoginButton extends Component {
+  render() {
+    return (
+      <button onClick={props.onClick}>
+        Login
+      </button>
+    );
+  }
 }
 
-function LogoutButton(props) {
-  return (
-    <button onClick={props.onClick}>
-      Logout
-    </button>
-  );
+import React, {Component} from 'react';
+
+export default class LogoutButton extends Component {
+  render() {
+    return (
+      <button onClick={props.onClick}>
+        Logout
+      </button>
+    );
+  }
 }
 ```
 
@@ -78,7 +102,9 @@ In the example below, we will create a stateful component called LoginControl.
 It will render either <LoginButton /> or <LogoutButton /> depending on its current state. It will also render a <Greeting /> from the previous example:
 
 ```js
-class LoginControl extends React.Component {
+import React, {Component} from 'react';
+
+export default class LoginControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {isLoggedIn: false}
@@ -121,18 +147,23 @@ While declaring a variable and using an if statement is a fine way to conditiona
 You may embed any expressions in JSX by wrapping them in curly braces. This includes the JavaScript logical `&&` operator. It can be handy for conditionally including an element:
 
 ```js
-function Mailbox(props) {
-  const unreadMessages = props.unreadMessages
-  return (
-    <div>
-      <h1>Hello!</h1>
-      {unreadMessages.length > 0 &&
-        <h2>
-          You have {unreadMessages.length} unread messages.
-        </h2>
-      }
-    </div>
-  )
+import React, {Component} from 'react';
+
+export default class Mailbox extends Component {
+  
+  render() {
+    const unreadMessages = props.unreadMessages
+    return (
+      <div>
+        <h1>Hello!</h1>
+        {unreadMessages.length > 0 &&
+          <h2>
+            You have {unreadMessages.length} unread messages.
+          </h2>
+        }
+      </div>
+    );
+  }
 }
 ```
 
