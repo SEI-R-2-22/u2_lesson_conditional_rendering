@@ -127,7 +127,7 @@ export default class LogoutButton extends Component {
 ```
 
 In the example below, we will now add `state` to our `App` component within it's `constructor()` to track our `isLoggedIn` variable. We'll also import our two button components from above and attach methods to set the state of `isLoggedIn` with `onClick` event listeners. 
-
+- In the `render()` method, we'll create a variable `button` that conditionally renders one of our button components depending on whether the user `isLoggedIn` or not.
 - `App.js` will now render either `<LoginButton />` or `<LogoutButton />` depending on its current state. 
 - It will also render a `<Greeting />` from the previous example:
 
