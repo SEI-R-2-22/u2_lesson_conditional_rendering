@@ -289,18 +289,20 @@ Therefore, if the condition is `true`, the element right after `&&` will appear 
 
 Another method for conditionally rendering elements inline is to use the JavaScript conditional operator `condition ? true : false`.
 
-In the example below, we use it to conditionally render a small block of text.
+To try this out, let's add a `<p>` tag inside the return of `App.js`. This `<p>` tag will tell us whether the user is logged in or not depending on the outcome of the ternary statement:
 
 ```js
-render() {
-  const isLoggedIn = this.state.isLoggedIn
-  return (
-    <div>
-      The user is <b>{isLoggedIn ? 'currently' : 'not'}</b> logged in.
-    </div>
-  );
-}
+// App.js 
+return (
+      <div>
+        <Greeting isLoggedIn={isLoggedIn} />
+        <p>The user is <b>{isLoggedIn ? 'currently' : 'not'}</b> logged in.</p>
+        {mailbox}
+        {button}
+      </div>
+    );
 ```
+
 
 ### Preventing Component from Rendering
 
@@ -308,11 +310,17 @@ In rare cases you might want a component to hide itself even though it was rende
 
 [Try it on CodePen](https://codepen.io/gaearon/pen/Xjoqwm?editors=0010)
 
-Source:
-- https://github.com/reactjs/reactjs.org/tree/master/content/docs/conditional-rendering.md
-
 
 ## Recap
+With React we are able to control the flow of rendering and user experience with conditional JavaScript statements. Statements often used in React apps to conditionally render components include:
+- `if` / `else` Statements
+- Logical `&&` Operators
+- Ternary Operators
+- `switch` Statements
+
+Make sure to use conditional rendering to create more controlled applications in React!
 
 ## Resources
+- [Conditional Rendering React](https://github.com/reactjs/reactjs.org/tree/master/content/docs/conditional-rendering.md)
+
 
