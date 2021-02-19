@@ -73,6 +73,10 @@ import React, {Component} from 'react';
 import Greeting from './components/Greeting';
 
 export default class App extends Component {
+  constructor() {
+    super()
+  }
+  
   render() {
     return <Greeting isLoggedIn={false} />
   }
@@ -88,27 +92,30 @@ This example renders a different greeting depending on the value of `isLoggedIn`
 
 You can use variables to store elements. This can help you conditionally render a part of the component while the rest of the output doesn’t change.
 
-Consider these two new components representing Logout and Login buttons:
+Let's create two more new components in our `components` folder representing `Logout` and `Login` buttons:
 
+#### LoginButton.js
 ```js
 import React, {Component} from 'react';
 
 export default class LoginButton extends Component {
   render() {
     return (
-      <button onClick={props.onClick}>
+      <button onClick={thisprops.onClick}>
         Login
       </button>
     );
   }
 }
-
+```
+#### LogoutButton.js
+```js
 import React, {Component} from 'react';
 
 export default class LogoutButton extends Component {
   render() {
     return (
-      <button onClick={props.onClick}>
+      <button onClick={this.props.onClick}>
         Logout
       </button>
     );
@@ -116,14 +123,15 @@ export default class LogoutButton extends Component {
 }
 ```
 
-In the example below, we will create a stateful component called LoginControl.
+In the example below, we will now add `state` to our `App` component within it's `constructor()` to track our `isLoggedIn` variable.
 
-It will render either <LoginButton /> or <LogoutButton /> depending on its current state. It will also render a <Greeting /> from the previous example:
+- It will now render either `<LoginButton />` or `<LogoutButton />` depending on its current state. 
+- It will also render a <Greeting /> from the previous example:
 
 ```js
 import React, {Component} from 'react';
 
-export default class LoginControl extends React.Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {isLoggedIn: false}
@@ -171,7 +179,7 @@ import React, {Component} from 'react';
 export default class Mailbox extends Component {
   
   render() {
-    const unreadMessages = props.unreadMessages
+    const unreadMessages = this.props.unreadMessages
     return (
       <div>
         <h1>Hello!</h1>
