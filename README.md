@@ -315,8 +315,6 @@ return (
 
 In rare cases you might want a component to hide itself even though it was rendered by another component. To do this return null instead of its render output.
 
-[Try it on CodePen](https://codepen.io/gaearon/pen/Xjoqwm?editors=0010)
-
 
 ## Recap
 With React we are able to control the flow of rendering and user experience with conditional JavaScript statements. Statements often used in React apps to conditionally render components include:
@@ -330,5 +328,3 @@ Make sure to use conditional rendering to create more controlled applications in
 ## Resources
 - [Conditional Rendering React Repository](https://github.com/reactjs/reactjs.org/tree/master/content/docs/conditional-rendering.md)
 - [React Conditional Rendering Docs](https://reactjs.org/docs/conditional-rendering.html)
-
-
