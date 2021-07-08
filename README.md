@@ -217,7 +217,10 @@ if (isLoggedIn) {
 ...
 ```
 
-<details><summary>Your <code>App.js</code> should look like this when you're finished</summary>
+<details>
+  <summary>
+    Your <code>App.js</code> should look like this when you're finished
+  </summary>
   
 ```js
 import './styles/App.css'
@@ -238,9 +241,9 @@ function App() {
   const mailbox = isLoggedIn && <Mailbox unreadMessages={unreadMessages} />
 
   if (isLoggedIn) {
-  button = <LogoutButton onClick={handleLogoutClick} />
+    button = <LogoutButton onClick={handleLogoutClick} />
   } else {
-  button = <LoginButton onClick={handleLoginClick} />
+    button = <LoginButton onClick={handleLoginClick} />
   }
 
   return (
@@ -252,7 +255,6 @@ function App() {
 }
 
 ```
-
 </details>
 
 So why does the logical && operator work with conditional rendering in React?
@@ -279,7 +281,7 @@ return (
       {button}
     </div>
   );
-````
+```
 
 ### Preventing Component from Rendering
 
