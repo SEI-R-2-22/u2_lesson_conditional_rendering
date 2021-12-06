@@ -1,6 +1,6 @@
 # Conditional Rendering
 
-![conditional](https://s3.ap-southeast-1.amazonaws.com/arrowhitech.com/wp-content/uploads/2020/07/09073745/conditional_rendering_react-1024x576.jpg)
+![conditional](https://i.imgur.com/DPsrU0G.png)
 
 ## Overview
 
