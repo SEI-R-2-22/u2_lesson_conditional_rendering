@@ -28,36 +28,37 @@ Conditional rendering in React works the same way conditions work in JavaScript.
 
 We'll start by adding two components into our `components` directory:
 
-#### UserGreeting.js
+#### UserGreeting.jsx
 
-```js
-import React from 'react'
+```jsx
+const UserGreeting = () => {
 
-export default function UserGreeting() {
   return <h1>Welcome back!</h1>
 }
+
+export default UserGreeting
 ```
 
-#### GuestGreeting.js
+#### GuestGreeting.jsx
 
-```js
-import React from 'react'
+```jsx
+const GuestGreeting = () => {
 
-export default function GuestGreeting() {
   return <h1>Please sign up.</h1>
 }
+
+export default GuestGreeting
 ```
 
 We’ll then create a Greeting component that displays either of these components depending on whether a user is logged in:
 
-#### Greeting.js
+#### Greeting.jsx
 
-```js
-import React from 'react'
+```jsx
 import UserGreeting from './UserGreeting'
 import GuestGreeting from './GuestGreeting'
 
-export default function Greeting(props) {
+const Greeting = (props) => {
   const isLoggedIn = props.isLoggedIn
 
   if (isLoggedIn) {
@@ -65,6 +66,8 @@ export default function Greeting(props) {
   }
   return <GuestGreeting />
 }
+
+export default Greeting
 ```
 
 Make sure to import our `Greeting` component into `App.js` so it is rendered and pass props to it for the `isLoggedIn` boolean value.
@@ -72,10 +75,10 @@ Make sure to import our `Greeting` component into `App.js` so it is rendered and
 #### App.js
 
 ```js
-import React from 'react'
 import Greeting from './components/Greeting'
 
-function App() {
+const App = () => {
+
   return <Greeting isLoggedIn={false} />
 }
 
@@ -97,24 +100,26 @@ You can use variables to store elements. This can help you conditionally render 
 
 Let's create two more new components in our `components` folder representing `Logout` and `Login` buttons:
 
-#### LoginButton.js
+#### LoginButton.jsx
 
-```js
-import React from 'react'
+```jsx
+const LoginButton = (props) => {
 
-export default function LoginButton(props) {
   return <button onClick={props.onClick}>Login</button>
 }
+
+export default LoginButton
 ```
 
-#### LogoutButton.js
+#### LogoutButton.jsx
 
-```js
-import React from 'react'
+```jsx
+const LogoutButton = (props) => {
 
-export default function LogoutButton(props) {
   return <button onClick={props.onClick}>Log Out</button>
 }
+
+export default LogoutButton
 ```
 
 In the example below, we will now add `state` to our `App` using the `useState` hook to track our `isLoggedIn` variable. We'll also import our two button components from above and attach methods to set the state of `isLoggedIn` with `onClick` event listeners.
@@ -124,12 +129,11 @@ In the example below, we will now add `state` to our `App` using the `useState` 
 - It will also render a `<Greeting />` from the previous example:
 
 ```js
-import React from 'react'
 import Greeting from './components/Greeting'
 import LoginButton from './components/LoginButton'
 import LogoutButton from './components/LogoutButton'
 
-function App() {
+const App = () => {
   const [isLoggedIn, toggleLogin] = useState(false)
 
   const handleLoginClick = () => toggleLogin(true)
@@ -151,6 +155,8 @@ function App() {
     </div>
   )
 }
+
+export default App
 ```
 
 While declaring a variable and using an if statement is a fine way to conditionally render a component, sometimes you might want to use a shorter syntax. There are a few ways to inline conditions in JSX, explained below.
@@ -163,12 +169,10 @@ You may embed any expressions in JSX by wrapping them in curly braces. This incl
 
 Let's add one more component to our `components` folder
 
-#### Mailbox.js
+#### Mailbox.jsx
 
-```js
-import React, { Component } from 'react'
-
-export default function Mailbox(props) {
+```jsx
+const Mailbox = (props) => {
   const unreadMessages = props.unreadMessages
 
   return (
@@ -180,6 +184,8 @@ export default function Mailbox(props) {
     </div>
   )
 }
+
+export default Mailbox
 ```
 
 Now we'll import it within our `App.js` component.
@@ -224,13 +230,12 @@ if (isLoggedIn) {
   
 ```js
 import './styles/App.css'
-import React from 'react'
 import Greeting from './components/Greeting'
 import LoginButton from './components/LoginButton'
 import LogoutButton from './components/LogoutButton'
 import Mailbox from './components/Mailbox'
 
-function App() {
+const App = () => {
   const [isLoggedIn, toggleLogin] = useState(false)
 
   const handleLoginClick = () => toggleLogin(true)
@@ -254,6 +259,7 @@ function App() {
   )
 }
 
+export default App
 ```
 </details>
 
@@ -280,7 +286,7 @@ return (
       {mailbox}
       {button}
     </div>
-  );
+  )
 ```
 
 ### Preventing Component from Rendering
