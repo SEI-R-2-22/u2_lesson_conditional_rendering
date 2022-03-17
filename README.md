@@ -14,7 +14,7 @@ In this lesson we'll be covering conditional rendering with React by building a 
 ## Getting Started
 
 - `Fork` and `clone` this repository and `cd` into the new directory
-- Create a new React app with `npx create-react-app .`
+- Create a new React app with `npx create-react-app .` (this will create the app in the *current* directory for us)
 - Run `npm start` to open your app in the browser
 - Within `src`, create a `components` folder to store components we'll be creating in this lesson
 
