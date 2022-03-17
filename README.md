@@ -129,6 +129,8 @@ In the example below, we will now add `state` to our `App` using the `useState` 
 - It will also render a `<Greeting />` from the previous example:
 
 ```js
+import { useState } from 'react'
+import './App.css'
 import Greeting from './components/Greeting'
 import LoginButton from './components/LoginButton'
 import LogoutButton from './components/LogoutButton'
@@ -149,7 +151,7 @@ const App = () => {
   }
 
   return (
-    <div>
+    <div className="App">
       <Greeting isLoggedIn={isLoggedIn} />
       {button}
     </div>
@@ -229,7 +231,8 @@ if (isLoggedIn) {
   </summary>
   
 ```js
-import './styles/App.css'
+import { useState } from 'react'
+import './App.css'
 import Greeting from './components/Greeting'
 import LoginButton from './components/LoginButton'
 import LogoutButton from './components/LogoutButton'
@@ -238,11 +241,18 @@ import Mailbox from './components/Mailbox'
 const App = () => {
   const [isLoggedIn, toggleLogin] = useState(false)
 
+  const [unreadMessages, setUnreadMessages] = useState([
+    'Hello',
+    'World',
+    'This is Doordash with your order'
+  ])
+
   const handleLoginClick = () => toggleLogin(true)
 
   const handleLogoutClick = () => toggleLogin(false)
 
   let button
+
   const mailbox = isLoggedIn && <Mailbox unreadMessages={unreadMessages} />
 
   if (isLoggedIn) {
@@ -252,9 +262,10 @@ const App = () => {
   }
 
   return (
-    <div>
+    <div className="App">
       <Greeting isLoggedIn={isLoggedIn} />
       {button}
+      {mailbox}
     </div>
   )
 }
@@ -280,7 +291,7 @@ To try this out, let's add a `<p>` tag inside the return of `App.js`. This `<p>`
 ```js
 // App.js
 return (
-    <div>
+    <div className="App">
       <Greeting isLoggedIn={isLoggedIn} />
       <p>The user is <b>{isLoggedIn ? 'currently' : 'not'}</b> logged in.</p>
       {mailbox}
