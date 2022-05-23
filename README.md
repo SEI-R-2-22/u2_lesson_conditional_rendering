@@ -31,7 +31,7 @@ Of course, between Ternaries and our Logical Operators (!, &&, ||), the order we
 const isLoggedIn = false
 
 
-return (!isLoggedIn ? <WelcomePage> : <LogInPage> )
+return (!isLoggedIn ? <LogInPage>  :  <WelcomePage> )
 
 
 ```
