@@ -6,6 +6,38 @@
 
 In this lesson we'll be covering conditional rendering with React by building a small greeting application. Conditional rendering is important because it allows us to control the flow of user experience in an application.
 
+
+As we know, there are many ways to set up conditional rendering with our Javascript. At its most basic, our final result will look something like this :
+
+```js
+
+const isLoggedIn = false
+
+if (isLoggedIn = true) {
+    return <h1> Welcome to our page! <h1>
+} else {
+    return <h1> Please log in! </h1>
+}
+
+
+```
+If you can understand the basics of this syntax, you are already 50% of the way there. All we have to do now is factor this into our React app. 
+
+Of course, between Ternaries and our Logical Operators (!, &&, ||), the order we want to compose our logic with, and the use of Components with Props, we can take this relatively simple block of code and build it up into something modern, elegant, and very powerful. 
+
+
+```js
+
+const isLoggedIn = false
+
+
+return (!isLoggedIn ? <WelcomePage> : <LogInPage> )
+
+
+```
+
+
+
 ## Lesson Objectives
 
 - Understand several methods for conditional rendering with React components
@@ -19,6 +51,7 @@ In this lesson we'll be covering conditional rendering with React by building a 
 - Within `src`, create a `components` folder to store components we'll be creating in this lesson
 
 ## Instructions
+
 
 ### Setup
 
