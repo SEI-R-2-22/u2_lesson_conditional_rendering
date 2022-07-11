@@ -23,8 +23,10 @@ if (isLoggedIn = true) {
 ```
 If you can understand the basics of this syntax, you are already 50% of the way there. All we have to do now is factor this into our React app. 
 
-Of course, between Ternaries and our Logical Operators (!, &&, ||), the order we want to compose our logic with, and the use of Components with Props, we can take this relatively simple block of code and build it up into something modern, elegant, and very powerful. 
+Between Ternaries and our Logical Operators (!, &&, ||), the order we want to compose our logic with, and the use of Components with Props, we can take this relatively simple block of code and build it up into something modern, elegant, and very powerful. 
 
+
+Think of how many sites you have used that have something like this in their code:
 
 ```js
 
@@ -304,7 +306,10 @@ const App = () => {
 }
 
 export default App
+
 ```
+
+
 </details>
 
 So why does the logical && operator work with conditional rendering in React?
